@@ -7,8 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="PokeApiRestAssured" />
+        <module name="poke-api-restassured" />
         <module name="RestAssuredStudies" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="RestAssuredOpenBanking" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
