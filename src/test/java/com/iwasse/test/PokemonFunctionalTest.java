@@ -1,3 +1,6 @@
+package com.iwasse.test;
+
+import com.iwasse.BaseAPI;
 import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 
@@ -5,20 +8,15 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 
-public class PokeApiTest {
+public class PokemonFunctionalTest extends BaseAPI {
 
-    @BeforeAll
-    public static void setup(){
-        baseURI = "https://pokeapi.co/api";
-        basePath = "/v2";
-    }
 
     @Test
     @DisplayName("When I request a pokemon resource then should return his name in the response body")
     public void whenISearchPokemonByName_ThenShouldReturnHisName(){
 
         given()
-               // .log().all()
+               .log().all()
          .when()
                 .get("/pokemon/charizard")
          .then()
