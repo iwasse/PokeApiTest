@@ -1,9 +1,7 @@
 package com.iwasse.berry;
 
 import com.iwasse.BaseAPI;
-import com.iwasse.data.provider.BerryDataProvider;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -22,8 +20,9 @@ public class BerryFunctionalTest extends BaseAPI {
     public void whenISearchBerryByName_ThenShouldReturnItsName(String berryName){
 
         given()
+            .pathParam("name", berryName)
         .when()
-            .get("/berry/" + berryName)
+            .get("/berry/{name}")
         .then()
             .log().all()
             .statusCode(200)
