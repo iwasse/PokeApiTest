@@ -1,4 +1,4 @@
-package com.iwasse.test;
+package com.iwasse.pokemon;
 
 import com.iwasse.BaseAPI;
 import org.junit.jupiter.api.*;
@@ -16,12 +16,12 @@ public class PokemonFunctionalTest extends BaseAPI {
     public void whenISearchPokemonByName_ThenShouldReturnHisName(){
 
         given()
-               .log().all()
          .when()
-                .get("/pokemon/charizard")
+            .get("/pokemon/charizard")
          .then()
-                .statusCode(200)
-                .body("name", equalTo("charizard"));
+            .log().all()
+            .statusCode(200)
+            .body("name", equalTo("charizard"));
 
     }
 
@@ -57,8 +57,8 @@ public class PokemonFunctionalTest extends BaseAPI {
         ArrayList<String> abilities =
                 given()
                 .when()
-                .get("/pokemon/charizard")
-                    .then()
+                    .get("/pokemon/charizard")
+                .then()
                     .statusCode(200)
                     .extract().path("moves.move.name.findAll{it.startsWith('mega')}");
 
