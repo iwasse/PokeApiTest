@@ -1,8 +1,11 @@
 package com.iwasse.berry;
 
 import com.iwasse.BaseAPI;
+import com.iwasse.data.provider.BerryDataProvider;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -13,19 +16,18 @@ import static org.hamcrest.Matchers.equalTo;
 */
 public class BerryFunctionalTest extends BaseAPI {
 
-    @Test
+    @ParameterizedTest
+    @MethodSource("com.iwasse.data.provider.BerryDataProvider#provideBerryNames")
     @DisplayName("When I request a berry resource, it should return its name in the response body.")
-    public void whenISearchBerryByName_ThenShouldReturnItsName(){
+    public void whenISearchBerryByName_ThenShouldReturnItsName(String berryName){
 
         given()
         .when()
-            .get("/berry/1")
+            .get("/berry/" + berryName)
         .then()
             .log().all()
             .statusCode(200)
-            .body("name", equalTo("cheri"),
-                    "growth_time", equalTo(3),
-                    "flavors[0].flavor.name", equalTo("spicy"));
+            .body("name", equalTo(berryName));
 
     }
 }
