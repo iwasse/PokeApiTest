@@ -24,7 +24,6 @@ public class BerryFunctionalTest extends BaseAPI {
         .when()
             .get("/berry/{name}")
         .then()
-            .log().all()
             .statusCode(200)
             .body("name", equalTo(berryName));
 

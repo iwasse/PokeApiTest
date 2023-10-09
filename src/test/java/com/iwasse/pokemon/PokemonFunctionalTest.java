@@ -62,7 +62,6 @@ public class PokemonFunctionalTest extends BaseAPI {
                     .statusCode(200)
                     .extract().path("moves.move.name.findAll{it.startsWith('mega')}");
 
-        System.out.println(abilities);
         Assertions.assertEquals(2, abilities.size());
         Assertions.assertTrue(abilities.get(0).equalsIgnoreCase("MeGA-PuncH"));
 

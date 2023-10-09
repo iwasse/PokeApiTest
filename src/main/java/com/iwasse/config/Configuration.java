@@ -8,8 +8,8 @@ import org.aeonbits.owner.Config;
         "classpath:api.properties"})
 public interface Configuration extends Config {
 
-    @Key("base.uri")
+    @Key("base-uri")
     String baseURI();
-    @Key("base.path")
+    @Key("base-path")
     String basePath();
 }
