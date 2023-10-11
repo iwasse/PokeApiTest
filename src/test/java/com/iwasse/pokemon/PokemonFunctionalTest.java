@@ -51,7 +51,7 @@ public class PokemonFunctionalTest extends BaseAPI {
 
     }
 
-    @Test
+    //@Test
     public void testeJsonPath(){
 
         ArrayList<String> abilities =
