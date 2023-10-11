@@ -30,4 +30,4 @@ jobs:
       - name: Build with Maven
         run: mvn -DskipTests -B package --file pom.xml
       - name: Run Functional Tests
-        run: mvn test -Dbase-uri=https://pokeapi.co -Dbase-path=/api/v2
+        run: mvn test
