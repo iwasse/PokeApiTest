@@ -17,6 +17,8 @@ public class BaseAPI {
         baseURI = cfg.baseURI();
         basePath = cfg.basePath();
 
+        System.out.println("URL: " + baseURI);
+
         RestAssured.useRelaxedHTTPSValidation();
 
     }
