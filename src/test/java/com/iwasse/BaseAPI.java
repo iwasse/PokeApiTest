@@ -2,6 +2,7 @@ package com.iwasse;
 
 import com.iwasse.config.Configuration;
 import io.restassured.RestAssured;
+import io.restassured.config.SSLConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeAll;
 
@@ -17,7 +18,8 @@ public class BaseAPI {
         baseURI = cfg.baseURI();
         basePath = cfg.basePath();
 
-        RestAssured.useRelaxedHTTPSValidation();
+        //RestAssured.useRelaxedHTTPSValidation();
+        RestAssured.config().sslConfig(new SSLConfig().allowAllHostnames().relaxedHTTPSValidation("TLSv1.2"));
 
     }
 
